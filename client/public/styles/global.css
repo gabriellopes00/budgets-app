@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;    
+  font-family: 'Roboto', sans-serif;
+}
+.form-btn{
+  background: #007bff !important;
+  border: 1px solid #007bff !important;
+}
+textarea{
+  resize: none
+}
+a{
+  transition: .2s
+}
+a:hover{
+  text-decoration: none;
+  text-shadow: 2px 2px 8px #bbbbbb;
+  color: #007bff
+}

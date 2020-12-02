@@ -1,0 +1,25 @@
+{
+  "name": "budgets-client",
+  "version": "1.0.0",
+  "description": "Budgets app frontend made with React.js",
+  "main": "index.js",
+  "repository": "https://github.com/gabriellopes00/budgets-app",
+  "author": "Gabriel Lopes",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "reactstrap": "^8.7.1"
+  }
+}
