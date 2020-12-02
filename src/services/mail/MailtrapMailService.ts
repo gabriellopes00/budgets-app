@@ -1,8 +1,11 @@
   import nodemailer from 'nodemailer'
 
-class MailService{
+  import { ISendMail } from './ISendMail'
+
+class MailService implements ISendMail{
   async sendMail(customer_email: string, customer_name: string){
 
+    //Transporter config
     const transporter = nodemailer.createTransport({
       host: "smtp.mailtrap.io",
       port: 2525,
@@ -13,6 +16,7 @@ class MailService{
       },
     })
 
+    // Mail template
     const mailData = {
       from: '3833e589e3-b9a8f7@inbox.mailtrap.io',
       to: customer_email,
@@ -20,6 +24,7 @@ class MailService{
       text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`
     }
 
+    //Send Mail function
     transporter.sendMail(mailData)
 
     .then(() => { console.log('Email sended successfully !') })
