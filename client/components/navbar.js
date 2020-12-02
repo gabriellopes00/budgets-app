@@ -7,17 +7,16 @@
     Nav,
     NavItem,
     NavLink,
-    NavbarText,
     Container
   } from 'reactstrap'  
+
+  import Image from 'next/image'
 
   // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
   // import { library } from '@fortawesome/fontawesome-svg-core'
   // import { faCheckSquare, faGift } from '@fortawesome/free-solid-svg-icons'
 
   // library.add(faGift)
-
-  import Image from 'next/image'
 
 function NavBar(){
 
@@ -49,7 +48,6 @@ function NavBar(){
               </NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Container>
     </Navbar>

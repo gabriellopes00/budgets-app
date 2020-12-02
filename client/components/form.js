@@ -4,6 +4,7 @@
 
 function FormData(){
 
+  // Data
   const [budget, setBudget] = useState({
     customer_name: '',
     customer_email: '',
@@ -12,17 +13,20 @@ function FormData(){
     body: '',
   })
 
+  // Set form status function
   const [response, setResponse] = useState({
     formSave: false,
     type: '',
     message: ''
   })
 
+  // Get data function, on Input change
   const onChangeInput = e => setBudget({ 
     ...budget, 
     [e.target.name]: e.target.value
   })
 
+  // Send data to server function
   const sendBudget = async e => {
     e.preventDefault()
     setResponse({ formSave: true })
@@ -52,22 +56,26 @@ function FormData(){
     }
   }
 
+  // Alerts close button
+  const [visible, setVisible] = useState(true)
+  const onDismiss = () => setVisible(false)
+
   return(
     <Form onSubmit={sendBudget}>
 
       { /* Response messages */ }
       { response.type === 'error' && 
-        <Alert color="danger">
+        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
           {response.message}
         </Alert> 
       }     
       { response.type === 'success' && 
-        <Alert color="success">
+        <Alert color="success" isOpen={visible} toggle={onDismiss}>
           {response.message}
         </Alert> 
       } 
       { response.type === 'network_error' && 
-        <Alert color="danger">
+        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
           {response.message}
         </Alert> 
       }

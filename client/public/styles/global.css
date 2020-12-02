@@ -1,22 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+  --primary: #007bff;
+  --shadow: #bbbbbb;
+  --linkShadow: #99caff;
+}
+
 *{
   margin: 0;
   padding: 0;    
   font-family: 'Roboto', sans-serif;
 }
+
 .form-btn{
-  background: #007bff !important;
-  border: 1px solid #007bff !important;
+  background: var(--primary) !important;
+  border: 1px solid var(--primary) !important;
+  opacity: 0.6;
+  transition: .2s;
 }
+.form-btn:hover {
+  opacity: 1;
+}
+
 textarea{
   resize: none
 }
+
 a{
   transition: .2s
 }
 a:hover{
   text-decoration: none;
-  text-shadow: 2px 2px 8px #bbbbbb;
-  color: #007bff
+  text-shadow: 2px 2px 8px var(--shadow);
+  color: var(--primary)
 }
+
+.link{
+  transition: .2s
+}
+.link:hover{
+  text-decoration: none;
+  text-shadow: 2px 2px 8px var(--linkShadow) !important;
+  color: var(--primary)
+}
+
