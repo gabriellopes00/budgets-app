@@ -2,10 +2,10 @@
 
   import { ISendMail } from './ISendMail'
 
-class MailService implements ISendMail{
+class MailtrapMailService implements ISendMail{
   async sendMail(customer_email: string, customer_name: string){
 
-    //Transporter config
+    //Mailtrap Transporter config
     const transporter = nodemailer.createTransport({
       host: "smtp.mailtrap.io",
       port: 2525,
@@ -32,4 +32,4 @@ class MailService implements ISendMail{
   }
 }
 
-export default new MailService()
+export default new MailtrapMailService()

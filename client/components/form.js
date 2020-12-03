@@ -1,5 +1,14 @@
   import React, { useState } from 'react'
-  import { Form, FormGroup, Label, Input, Row, Button, Alert } from 'reactstrap'
+  import { 
+    Form, 
+    FormGroup, 
+    Label, 
+    Input, 
+    Row, 
+    Alert, 
+    Button, 
+    Modal
+  } from 'reactstrap'
   import axios from 'axios'
 
 function FormData(){
@@ -32,31 +41,37 @@ function FormData(){
     setResponse({ formSave: true })
 
     try {
+      // Api request
       const res = await axios.post('http://localhost:5050/budgets', budget)
       
+      // Registered -> status code == 201
       if (res.status === 201) {
         setResponse({ 
           formSave: false,
           type: 'success',
-          message: res.data
+          message: 'Budget registered successfully ! Please check your email box.'
         })
-      } else {
+      } 
+
+    } catch (error) {   
+      // Server not responding -> status code 500
+      if(error.message == 'Network Error'){
+        setResponse({
+          type: 'network_error',
+          message: 'Sorry :( Server is not responding, please try again later.'
+        })
+      } else { //Bad request -> status code 400
         setResponse({
           formSave: false,
           type: 'error',
-          message: res.data
+          message: 'Invalid data received, please try again :('
         })
       }
-
-    } catch {
-      setResponse({
-        type: 'network_error',
-        message: 'Sorry :( Server not responding'
-      })
     }
+    finally { setVisible(true) }
   }
 
-  // Alerts close button
+  // Alerts modal close button
   const [visible, setVisible] = useState(true)
   const onDismiss = () => setVisible(false)
 
@@ -65,26 +80,33 @@ function FormData(){
 
       { /* Response messages */ }
       { response.type === 'error' && 
-        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
-          {response.message}
-        </Alert> 
+        <Modal isOpen={ visible }  className="p-0">
+          <Alert color="danger" className="m-0" toggle={onDismiss}>
+            {response.message}
+          </Alert> 
+        </Modal>
       }     
       { response.type === 'success' && 
-        <Alert color="success" isOpen={visible} toggle={onDismiss}>
-          {response.message}
-        </Alert> 
+        <Modal isOpen={ visible }  className="p-0">
+          <Alert color="success" className="m-0" toggle={onDismiss}>
+            {response.message}
+          </Alert> 
+        </Modal>
       } 
       { response.type === 'network_error' && 
-        <Alert color="danger" isOpen={visible} toggle={onDismiss}>
-          {response.message}
-        </Alert> 
+        <Modal isOpen={ visible }  className="p-0">
+          <Alert color="danger" className="m-0" toggle={onDismiss}>
+            {response.message}
+          </Alert> 
+        </Modal> 
       }
 
       { /* Form component */ }
       <Row>
         <FormGroup className="col-md-4">
           <Label for="examplePassword">Name</Label>
-          <Input 
+          <Input
+            required 
             type="text" 
             name="customer_name" 
             id="Name" 
@@ -94,7 +116,8 @@ function FormData(){
         </FormGroup>
         <FormGroup className="col-md-4">
           <Label for="exampleEmail">Email</Label>
-          <Input 
+          <Input
+            required 
             type="email" 
             name="customer_email" 
             id="email" 
@@ -104,7 +127,8 @@ function FormData(){
         </FormGroup>    
         <FormGroup className="col-md-4">
           <Label for="exampleEmail">Phone</Label>
-          <Input 
+          <Input
+            required 
             type="number" 
             name="customer_phone" 
             id="phone" 
@@ -116,7 +140,8 @@ function FormData(){
       <Row>
         <FormGroup className="col-md-6">
           <Label for="subject">Subject</Label>
-          <Input 
+          <Input
+            required 
             type="text" 
             name="subject" 
             id="subject" 
@@ -125,13 +150,21 @@ function FormData(){
           />
 
           { response.formSave ?
-            <Button className="form-btn shadow w-100 mt-5" disabled>Sending...</Button> : 
-            <Button className="form-btn shadow w-100 mt-5">Request a budget</Button>
+            <Button 
+              type="submit" 
+              className="form-btn shadow w-100 mt-5" 
+              disabled
+            >Sending...</Button> : 
+            <Button 
+              type="submit" 
+              className="form-btn shadow w-100 mt-5"
+            >Request a budget</Button>
           }
         </FormGroup>
         <FormGroup className="col-md-6">
           <Label for="subject">Budget</Label>
-          <Input 
+          <Input
+            required 
             type="textarea" 
             name="body" 
             id="budget" 

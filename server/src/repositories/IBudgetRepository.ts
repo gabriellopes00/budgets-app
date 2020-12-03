@@ -1,4 +1,4 @@
-  import { IBudget } from '../interfaces/IBudget'
+  import { IBudget } from '@interfaces/IBudget'
 
 export interface IBudgetRepository{
   findBudgets(): Promise<IBudget[]>

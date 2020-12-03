@@ -1,10 +1,14 @@
   import { Request, Response } from 'express'
 
-  import { IBudget } from '../interfaces/IBudget'
+  import { IBudget } from '@interfaces/IBudget'
   import { IBudgetsController } from './IBudgetsController'
 
-  import budgetsRepository from '../repositories/BudgetsRepository'
-  import mailService from '../services/mail/MailtrapMailService'
+  import budgetsRepository from '@repositories/BudgetsRepository'
+
+  import MailtrapMailService from '@services/mail/MailtrapMailService'
+  import GmailMailService from '@services/mail/MailtrapMailService'
+
+  import { BudgetsValidator } from '@validators/BudgetsValidator'
 
 class BudgetsController implements IBudgetsController {
 
@@ -13,8 +17,7 @@ class BudgetsController implements IBudgetsController {
     try {
       const budgets = await budgetsRepository.findBudgets()
       return res.json(budgets)
-    } catch (error) {
-      console.error(error);
+    } catch {
       return res.sendStatus(500)
     }
   }
@@ -23,11 +26,13 @@ class BudgetsController implements IBudgetsController {
   async store(req: Request, res: Response): Promise<Response>{
     try {
       const data:IBudget  = req.body
-      await budgetsRepository.createBudget(data)
+      await BudgetsValidator.validate(data)
 
-      mailService.sendMail(data.customer_email, data.customer_name)
+      await budgetsRepository.createBudget(data)
+      GmailMailService.sendMail(data.customer_email, data.customer_name)
 
       return res.sendStatus(201)
+
     } catch{
       return res.sendStatus(400)
 

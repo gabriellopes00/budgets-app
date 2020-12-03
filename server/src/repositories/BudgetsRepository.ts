@@ -1,6 +1,6 @@
-  import BudgetsModel from '../models/Budgets'
+  import BudgetsModel from '@models/Budgets'
 
-  import { IBudget } from '../interfaces/IBudget'
+  import { IBudget } from '@interfaces/IBudget'
   import { IBudgetRepository } from './IBudgetRepository'
 
 class BudgetsRepository /* implements IBudgetRepository */ {
