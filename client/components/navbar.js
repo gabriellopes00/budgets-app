@@ -12,11 +12,11 @@
 
   import Image from 'next/image'
 
-  // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  // import { library } from '@fortawesome/fontawesome-svg-core'
-  // import { faCheckSquare, faGift } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { fas } from '@fortawesome/free-solid-svg-icons'
 
-  // library.add(faGift)
+  library.add(fas)
 
 function NavBar(){
 
@@ -39,11 +39,14 @@ function NavBar(){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">Budgets</NavLink>
+              <NavLink href="/">                                
+                <FontAwesomeIcon icon="home" className="mr-1" />
+                Budgets
+              </NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="https://github.com/gabriellopes00/budgets-app">                
-                {/* <FontAwesomeIcon icon="faGift" /> */}
+                <FontAwesomeIcon icon="code-branch" className="mr-1" />
                 GitHub
               </NavLink>
             </NavItem>

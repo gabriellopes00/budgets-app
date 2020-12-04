@@ -6,7 +6,7 @@
   import budgetsRepository from '@repositories/BudgetsRepository'
 
   import MailtrapMailService from '@services/mail/MailtrapMailService'
-  import GmailMailService from '@services/mail/MailtrapMailService'
+  import GmailMailService from '@services/mail/GmailMailService'
 
   import { BudgetsValidator } from '@validators/BudgetsValidator'
 

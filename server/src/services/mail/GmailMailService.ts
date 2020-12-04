@@ -7,7 +7,8 @@ class GMailService implements ISendMail{
 
     //Gmail Transporter config
     const transporter = nodemailer.createTransport({
-      host: 'smtp-relay.gmail.com',
+      service: 'gmail',
+      host: 'smtp.gmail.com',
       port: 587,
       secure: true,
       auth: {
@@ -18,7 +19,7 @@ class GMailService implements ISendMail{
 
     // Mail template
     const mailData = {
-      from: '3833e589e3-b9a8f7@inbox.mailtrap.io',
+      from: 'nodemailertest12345678@gmail.com',
       to: customer_email,
       subject: 'Congratulations, budget received successfully',
       text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`
