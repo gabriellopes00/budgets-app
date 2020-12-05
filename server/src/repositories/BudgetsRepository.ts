@@ -21,7 +21,17 @@ class BudgetsRepository /* implements IBudgetRepository */ {
    } catch (error) {
       throw Error(error)
    }
+
   }
+
+  //Only used in the development environment
+  async deleteBudget(budget: string){
+    try {
+      await BudgetsModel.findByIdAndDelete(budget)
+    } catch (error) {
+       throw Error(error)
+    }
+   }
 
 }
 

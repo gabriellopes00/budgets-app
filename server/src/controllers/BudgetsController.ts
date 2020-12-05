@@ -39,6 +39,19 @@ class BudgetsController implements IBudgetsController {
 
     }
   }
+
+  //Only used in the development environment
+  async destroy(req: Request, res: Response): Promise<Response>{
+    try {
+      const { id } = req.body
+      await budgetsRepository.deleteBudget(id)
+      return res.sendStatus(200)
+
+    } catch{
+      return res.sendStatus(400)
+
+    }
+  }
 }
 
 export default new BudgetsController()

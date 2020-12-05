@@ -1,5 +1,5 @@
   import React, { useState } from 'react'
-  import { 
+  import {
     Collapse,
     Navbar,
     NavbarToggler,
@@ -8,7 +8,7 @@
     NavItem,
     NavLink,
     Container
-  } from 'reactstrap'  
+  } from 'reactstrap'
 
   import Image from 'next/image'
 
@@ -28,8 +28,8 @@ function NavBar(){
     <Navbar color="light" light expand="md">
       <Container>
         <NavbarBrand href="/">
-          <Image  
-            src="/main.svg" 
+          <Image
+            src="/main.svg"
             alt="Logo"
             width={ 30 }
             height={ 30 }
@@ -39,13 +39,19 @@ function NavBar(){
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">                                
+              <NavLink href="/">
                 <FontAwesomeIcon icon="home" className="mr-1" />
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/budgets">
+                <FontAwesomeIcon icon="stream" className="mr-1" />
                 Budgets
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/gabriellopes00/budgets-app">                
+              <NavLink href="https://github.com/gabriellopes00/budgets-app">
                 <FontAwesomeIcon icon="code-branch" className="mr-1" />
                 GitHub
               </NavLink>

@@ -17,6 +17,8 @@
 ###### Project Screen
 
 <img src="./.github/screen.png"/>
+<img src="./.github/list.png"/>
+
 
 ## About this App 💻
 In this app, the users can send a budget request to the server through a form, in this request the user the users send their *email*, *name*, and *phone* and the *subject* and body about the budget. After the budget be received in the server, this user will receive an email with the confirmation that their budget has been sended successfully.

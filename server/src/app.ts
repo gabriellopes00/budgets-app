@@ -6,7 +6,7 @@
 
 const app = express()
 app.use(express.json())
-app.use(cors({ origin: 'http://localhost:3030' }))
+app.use(cors())
 
 app.use('/budgets', budgetsRouter)
 
