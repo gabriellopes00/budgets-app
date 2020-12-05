@@ -14,9 +14,9 @@ class BudgetsRepository /* implements IBudgetRepository */ {
     }
   }
 
-  async createBudget(data: IBudget){
+  async createBudget(budget: IBudget){
    try {
-    const newBudget = await BudgetsModel.create(data)
+    const newBudget = await BudgetsModel.create(budget)
     return newBudget
    } catch (error) {
       throw Error(error)

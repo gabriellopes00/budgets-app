@@ -1,24 +1,25 @@
   import nodemailer from 'nodemailer'
 
-  import { ISendMail } from './ISendMail'
+  import { ISendMail } from '../ISendMail'
 
-class MailtrapMailService implements ISendMail{
+class GMailService implements ISendMail{
   async sendMail(customer_email: string, customer_name: string){
 
-    //Mailtrap Transporter config
+    //Gmail Transporter config
     const transporter = nodemailer.createTransport({
-      host: "smtp.mailtrap.io",
-      port: 2525,
-      secure: false,
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: true,
       auth: {
-        user: "1007df74c11f12",
-        pass: "a7e5cd78bae481"
-      },
+        user: 'nodemailertest12345678@gmail.com',
+        pass: 'mailer12345678'
+      }
     })
 
     // Mail template
     const mailData = {
-      from: '3833e589e3-b9a8f7@inbox.mailtrap.io',
+      from: 'nodemailertest12345678@gmail.com',
       to: customer_email,
       subject: 'Congratulations, budget received successfully',
       text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`
@@ -32,4 +33,4 @@ class MailtrapMailService implements ISendMail{
   }
 }
 
-export default new MailtrapMailService()
+export default new GMailService()

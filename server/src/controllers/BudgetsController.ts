@@ -5,14 +5,13 @@
 
   import budgetsRepository from '@repositories/BudgetsRepository'
 
-  import MailtrapMailService from '@services/mail/MailtrapMailService'
-  import GmailMailService from '@services/mail/GmailMailService'
-
   import { BudgetsValidator } from '@validators/BudgetsValidator'
+
+  import { SendMail } from '@services/mail/MailProviderDecisionMaker'
 
 class BudgetsController implements IBudgetsController {
 
-  // User search function
+  // Budget list function
   async index(req: Request, res: Response){
     try {
       const budgets = await budgetsRepository.findBudgets()
@@ -22,14 +21,15 @@ class BudgetsController implements IBudgetsController {
     }
   }
 
-  // User registration function
+  // Budget registration function
   async store(req: Request, res: Response): Promise<Response>{
     try {
-      const data:IBudget  = req.body
-      await BudgetsValidator.validate(data)
+      const budget:IBudget  = req.body
+      await BudgetsValidator.validate(budget)
 
-      await budgetsRepository.createBudget(data)
-      GmailMailService.sendMail(data.customer_email, data.customer_name)
+      await budgetsRepository.createBudget(budget)
+
+      await SendMail(budget.customer_email, budget.customer_name)
 
       return res.sendStatus(201)
 

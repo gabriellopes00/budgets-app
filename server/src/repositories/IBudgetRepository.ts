@@ -2,5 +2,5 @@
 
 export interface IBudgetRepository{
   findBudgets(): Promise<IBudget[]>
-  createBudget(data: IBudget): Promise<IBudget>
+  createBudget(budget: IBudget): Promise<IBudget>
 }
