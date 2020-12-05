@@ -5,6 +5,6 @@ export interface IMail{
   text: string  /* mail body */
 }
 
-export interface IMailProviderSendMail{
+export interface IMailProvider{
   sendMail(customer_email: string, customer_name: string): Promise<void>
 }

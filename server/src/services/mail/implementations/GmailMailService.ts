@@ -1,8 +1,8 @@
   import nodemailer from 'nodemailer'
 
-  import { ISendMail } from '../ISendMail'
+  import { IMailProvider } from '../ISendMail'
 
-class GMailService implements ISendMail{
+class GMailService implements IMailProvider{
   async sendMail(customer_email: string, customer_name: string){
 
     //Gmail Transporter config

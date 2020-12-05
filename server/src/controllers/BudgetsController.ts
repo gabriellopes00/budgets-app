@@ -1,13 +1,12 @@
   import { Request, Response } from 'express'
 
-  import { IBudget } from '@interfaces/IBudget'
   import { IBudgetsController } from './IBudgetsController'
-
+  import { IBudget } from '@interfaces/IBudget'
   import budgetsRepository from '@repositories/BudgetsRepository'
-
   import { BudgetsValidator } from '@validators/BudgetsValidator'
 
-  import { SendMail } from '@services/mail/MailProviderDecisionMaker'
+  import MailtrapMailService from '@mails/implementations/MailtrapMailService'
+  /* import GmailMailService form '@mails/implementations/GmailMailService */
 
 class BudgetsController implements IBudgetsController {
 
@@ -29,8 +28,10 @@ class BudgetsController implements IBudgetsController {
 
       await budgetsRepository.createBudget(budget)
 
-      await SendMail(budget.customer_email, budget.customer_name)
-
+      await MailtrapMailService.sendMail(
+        budget.customer_email,
+        budget.customer_name
+      )
       return res.sendStatus(201)
 
     } catch{

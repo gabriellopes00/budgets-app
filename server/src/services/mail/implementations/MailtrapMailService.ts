@@ -1,8 +1,9 @@
   import nodemailer from 'nodemailer'
 
-  import { IMailProviderSendMail } from '../ISendMail'
+  import { IMailProvider } from '../ISendMail'
 
-class MailtrapMailService implements IMailProviderSendMail{
+class MailtrapMailService implements IMailProvider{
+
   async sendMail(customer_email: string, customer_name: string){
 
     //Mailtrap Transporter config
@@ -21,7 +22,7 @@ class MailtrapMailService implements IMailProviderSendMail{
       from: '3833e589e3-b9a8f7@inbox.mailtrap.io',
       to: customer_email,
       subject: 'Congratulations, budget received successfully',
-      text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`
+      text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`,
     }
 
     //Send Mail function

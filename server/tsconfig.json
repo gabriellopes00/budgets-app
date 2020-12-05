@@ -24,7 +24,8 @@
       "@services/*": ["./src/services/*"],
       "@repositories/*": ["./src/repositories/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@validators/*": ["./src/validators/*"]
+      "@validators/*": ["./src/validators/*"],
+      "@mails/*": ["./src/services/mail/*"]
     }
   },
   "include": [
