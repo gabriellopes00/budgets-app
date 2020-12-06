@@ -4,11 +4,12 @@
   --primary: #007bff;
   --shadow: #bbbbbb;
   --linkShadow: #99caff;
+  --white: #fff;
 }
 
 *{
   margin: 0;
-  padding: 0;    
+  padding: 0;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -20,6 +21,17 @@
 }
 .form-btn:hover {
   opacity: 1;
+}
+
+.form-btn-outline{
+  background: transparent !important;
+  border: 1px solid var(--primary) !important;
+  color: var(--primary) !important;
+  transition: .2s;
+}
+.form-btn-outline:hover {
+  background: var(--primary) !important;
+  color: var(--white) !important;
 }
 
 textarea{
