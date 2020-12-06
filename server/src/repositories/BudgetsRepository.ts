@@ -1,13 +1,13 @@
-  import BudgetsModel from '@models/Budgets'
+import BudgetsModel from '@models/Budgets'
 
-  import { IBudget } from '@interfaces/IBudget'
-  import { IBudgetRepository } from './IBudgetRepository'
+import { IBudget } from '@interfaces/IBudget'
+import { IBudgetRepository } from './IBudgetRepository'
 
 class BudgetsRepository /* implements IBudgetRepository */ {
 
   async findBudgets(){
     try {
-      const budgets = BudgetsModel.find()
+      const budgets = await BudgetsModel.find()
       return budgets
     } catch (error) {
       throw Error(error)
