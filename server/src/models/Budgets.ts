@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose'
+import { IBudgetRepository } from '@interfaces/IBudget'
 
 const budgetsSchema = new Schema({
   customer_name: {
@@ -21,4 +22,4 @@ const budgetsSchema = new Schema({
   }
 })
 
-export default model('BudgetsModel', budgetsSchema)
+export default model<IBudgetRepository>('BudgetsModel', budgetsSchema)

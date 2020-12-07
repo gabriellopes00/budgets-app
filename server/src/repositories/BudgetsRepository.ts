@@ -3,7 +3,7 @@ import BudgetsModel from '@models/Budgets'
 import { IBudget } from '@interfaces/IBudget'
 import { IBudgetRepository } from './IBudgetRepository'
 
-class BudgetsRepository /* implements IBudgetRepository */ {
+class BudgetsRepository implements IBudgetRepository  {
 
   async findBudgets(){
     try {
