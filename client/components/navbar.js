@@ -1,22 +1,21 @@
-  import React, { useState } from 'react'
-  import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container
-  } from 'reactstrap'
+import React, { useState } from 'react'
+import Image from 'next/image'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container
+} from 'reactstrap'
 
-  import Image from 'next/image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { fas } from '@fortawesome/free-solid-svg-icons'
-
-  library.add(fas)
+library.add(fas)
 
 function NavBar(){
 

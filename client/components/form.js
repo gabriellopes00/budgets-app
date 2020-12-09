@@ -1,15 +1,15 @@
-  import React, { useState } from 'react'
-  import {
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Row,
-    Alert,
-    Button,
-    Modal
-  } from 'reactstrap'
-  import axios from 'axios'
+import React, { useState } from 'react'
+import axios from 'axios'
+import {
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Row,
+  Alert,
+  Button,
+  Modal
+} from 'reactstrap'
 
 function FormData(){
 

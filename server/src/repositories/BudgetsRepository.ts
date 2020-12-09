@@ -5,7 +5,7 @@ import { IBudgetRepository } from './IBudgetRepository'
 
 class BudgetsRepository implements IBudgetRepository  {
 
-  async findBudgets(){
+  async findAll(){
     try {
       const budgets = await BudgetsModel.find()
       return budgets
@@ -14,7 +14,7 @@ class BudgetsRepository implements IBudgetRepository  {
     }
   }
 
-  async createBudget(budget: IBudget){
+  async create(budget: IBudget){
    try {
     const newBudget = await BudgetsModel.create(budget)
     return newBudget
@@ -24,8 +24,8 @@ class BudgetsRepository implements IBudgetRepository  {
 
   }
 
-  //Only used in the development environment
-  async deleteBudget(budget: string){
+  //Used in the development environment
+  async delete(budget: string){
     try {
       await BudgetsModel.findByIdAndDelete(budget)
     } catch (error) {

@@ -1,8 +1,8 @@
-  import React from 'react'
-  import { Container, Jumbotron, } from 'reactstrap'
+import React from 'react'
+import { Container, Jumbotron, } from 'reactstrap'
 
-  import Form from '../components/form'
-  import NavBar from '../components/navbar'
+import Form from '../components/form'
+import NavBar from '../components/navbar'
 
 function layout() {
   return (
@@ -21,6 +21,7 @@ function layout() {
 
         </Container>
       </Jumbotron>
+
     </div>
   )
 }

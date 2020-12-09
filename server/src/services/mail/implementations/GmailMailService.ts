@@ -1,8 +1,8 @@
-  import nodemailer from 'nodemailer'
-
-  import { IMailProvider } from '../ISendMail'
+import nodemailer from 'nodemailer'
+import { IMailProvider } from '../IMailProvider'
 
 class GMailService implements IMailProvider{
+
   async sendMail(customer_email: string, customer_name: string){
 
     //Gmail Transporter config
@@ -12,14 +12,14 @@ class GMailService implements IMailProvider{
       port: 587,
       secure: true,
       auth: {
-        user: 'nodemailertest12345678@gmail.com',
-        pass: 'mailer12345678'
+        user: 'youremailhere@gmail.com',
+        pass: 'yourpasswordhere'
       }
     })
 
     // Mail template
     const mailData = {
-      from: 'nodemailertest12345678@gmail.com',
+      from: 'youremailhere@gmail.com',
       to: customer_email,
       subject: 'Congratulations, budget received successfully',
       text: `Hii, ${customer_name}, your budget was received successfully at ${new Date()}. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam perferendis, ipsum neque earum cum vel, praesentium itaque accusantium saepe, possimus sapiente similique voluptatibus ratione ipsam vitae autem! Et, unde molestias?`
