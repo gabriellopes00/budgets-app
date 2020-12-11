@@ -1,23 +1,21 @@
-import React from 'react'
-import { Container, Jumbotron, } from 'reactstrap'
+import React from "react";
+import { Container, Jumbotron } from "reactstrap";
 
-import NavBar from '../components/navbar'
-import BudgetCard from '../components/BudgetCard'
+import NavBar from "../components/navbar";
+import BudgetCard from "../components/BudgetCard";
 
 function layout() {
-return (
-  <div>
+  return (
+    <div>
+      <NavBar />
 
-    <NavBar />
-
-    <Jumbotron className="m-0 w-100 h-100 p-5">
-      <Container>
-        <BudgetCard />
-      </Container>
-    </Jumbotron>
-
-  </div>
-)
+      <Jumbotron className="m-0 w-100 h-100 p-5">
+        <Container>
+          <BudgetCard />
+        </Container>
+      </Jumbotron>
+    </div>
+  );
 }
 
-export default layout
+export default layout;
