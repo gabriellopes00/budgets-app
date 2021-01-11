@@ -5,13 +5,13 @@
 
 ###### Made with
 <p>  
-  <img src="https://devicon.dev/devicon.git/icons/react/react-original.svg" alt="react.js" width="50" height="50"/>   
-  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/bootstrap/bootstrap.png" alt="bootstrap" width="50" height="50"/> 
+  <img src="https://cdn.svgporn.com/logos/react.svg" alt="react.js" width="50" height="50"/>   
+  <img src="https://cdn.svgporn.com/logos/bootstrap.svg" alt="bootstrap" width="50" height="50"/> 
   <img src="https://nodemailer.com/nm_logo_200x136.png" alt="nodemailer" width="60" height="50"/>  
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original.svg" alt="nodejs" width="50" height="50"/>  
+  <img src="https://cdn.svgporn.com/logos/nodejs-icon.svg" alt="nodejs" width="50" height="50"/>  
   <img src="./client/public/logo.svg" alt="next.js" width="50" height="50"/>
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="50" height="50"/>  
-  <img src="https://devicons.github.io/devicon/devicon.git/icons/typescript/typescript-original.svg" alt="typescript" width="50" height="50"/>  
+  <img src="https://cdn.svgporn.com/logos/javascript.svg" alt="javascript" width="50" height="50"/>  
+  <img src="https://cdn.svgporn.com/logos/typescript-icon.svg" alt="typescript" width="50" height="50"/>  
 </p>
 
 ###### Project Screen
